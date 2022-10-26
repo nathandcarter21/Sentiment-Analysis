@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='styles.css')}}" />
+		<title>Sentiment Analysis</title>
+	</head>
+	<body>
+		<h1>Sentiment Analysis</h1>
+		<form action="/" method="POST">
+			<input type="text" name="data" placeholder="Type a sentence here" />
+			<button class="submit">Analyze</button>
+		</form>
+		{% if data %}
+		<div class="response">
+			<h3>Positive rating: {{ data[0] }}</h3>
+			<h3>Neutral rating: {{ data[1] }}</h3>
+			<h3>Negative rating: {{ data[2] }}</h3>
+			<h3>Overall: {{ data[3] }}</h3>
+		</div>
+		{% endif %}
+		<footer class="footer">
+			<h4>Created by Nathan Carter</h4>
+		</footer>
+	</body>
+</html>
